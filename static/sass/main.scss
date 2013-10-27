@@ -5,4 +5,15 @@
 // Site font is inherited from html
 html {
   font-family: $font-main;
+  font-size: $font-size-text;
+  line-height: 1.2;
+}
+
+body {
+  margin: 1em;
+}
+
+h1 {
+  font-size: $font-size-header;
+  padding: .2em 0;
 }

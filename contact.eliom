@@ -12,6 +12,5 @@ module Contact = struct
 
   let footer_html () =
     let my_email = new email "golmansax" "gmail" in
-    div [pcdata my_email#get_human]
-    (*(Printf.sprintf "Email me: %s" my_email#get_human)]*)
+    div [pcdata (Printf.sprintf "Contact me: %s" my_email#get_human)]
 end
