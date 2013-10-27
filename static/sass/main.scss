@@ -1,0 +1,8 @@
+@import 'compass/reset';
+
+@import 'core/core';
+
+// Site font is inherited from html
+html {
+  font-family: $font-main;
+}
