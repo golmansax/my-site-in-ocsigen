@@ -1,3 +1,3 @@
-my_site
+My Personal Site
 =======
-For my site
+Written in OCaml (with Ocsigen) and Sass (with Compass)
