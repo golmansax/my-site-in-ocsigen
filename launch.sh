@@ -31,7 +31,7 @@ elif [ $1 == 'prod' ]; then
   echo -e "\nLaunching Ocsigen server..."
   nohup \
     sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte \
-    > my-site.out >& my-site.err &
+    > /tmp/my-site.out >& /tmp/my-site.err &
 else
   echo "Usage ./launch.sh (dev|prod)"
 fi
