@@ -3,7 +3,7 @@
 #           SETTINGS FOR THE ELIOM PROJECT test
 #----------------------------------------------------------------------
 
-PROJECT_NAME := my_site
+PROJECT_NAME := my-site
 
 # Source files for the server
 SERVER_FILES := $(wildcard *.eliomi *.eliom)
