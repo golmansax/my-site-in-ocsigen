@@ -20,6 +20,9 @@ cd static || wrong_dir
 compass compile
 cd ..
 
+# Compile the files first, then run the launch make
+make
+
 if [ $1 == 'dev' ]; then
   make test.byte
 elif [ $1 == 'prod' ]; then
