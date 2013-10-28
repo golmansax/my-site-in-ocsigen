@@ -1,7 +1,9 @@
 # Generated files from Eliom
 .depend
 local
-_*
+_deps
+_client
+_server
 
 # Generated files from sass
 .sass-cache
