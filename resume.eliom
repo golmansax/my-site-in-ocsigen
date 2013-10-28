@@ -25,14 +25,13 @@ module Resume = struct
     School (school, end_date) ->
       [pcdata (Printf.sprintf "%s: Class of %s" school (print_date end_date))]
       |
-    Company (company, link, position, start_date, end_date) ->
-      [
-        F.Raw.a ~a:[a_href (Xml.uri_of_string link)] [pcdata company];
-        pcdata (Printf.sprintf
-          ", %s: %s - %s" position (print_date start_date)
-          (print_date end_date)
-        )
-      ]
+    Company (company, link, position, start_date, end_date) -> [
+      F.Raw.a ~a:[a_href (Xml.uri_of_string link)] [pcdata company];
+      pcdata (Printf.sprintf
+        ", %s: %s - %s" position (print_date start_date)
+        (print_date end_date)
+      )
+    ]
 
   let resume = ref [
     Company (

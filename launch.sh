@@ -2,6 +2,28 @@
 #
 # @author holman
 #
-# Shortcut script to launch Ocsigen web server
+# Shortcut script to launch Ocsigen web server and compile Sass
 
-sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte
+usage() {
+  echo "Usage ./launch.sh (dev|prod)"
+  exit
+}
+
+wrong_dir() {
+  echo "Error: run from project root dir"
+  exit
+}
+
+if [ $# -lt 1 ]; then usage; fi
+
+cd static || wrong_dir
+compass compile
+cd ..
+
+if [ $1 == 'dev' ]; then
+  make test.byte
+elif [ $1 == 'prod' ]; then
+  sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte
+else
+  echo "Usage ./launch.sh (dev|prod)"
+fi
