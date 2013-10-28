@@ -27,7 +27,11 @@ if [ $1 == 'dev' ]; then
   make test.byte
 elif [ $1 == 'prod' ]; then
   sudo make install
-  sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte
+
+  echo -e "\nLaunching Ocsigen server..."
+  nohup \
+    sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte \
+    > my-site.out >& my-site.err &
 else
   echo "Usage ./launch.sh (dev|prod)"
 fi
