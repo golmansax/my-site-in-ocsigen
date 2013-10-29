@@ -11,6 +11,11 @@ let main_service = My_app.register_service
   ~path:[""]
   ~get_params:Eliom_parameter.unit
   (fun () () ->
+    let body_header = [h1 [pcdata "Holman Gao"]] in
+    let body_content = Resume.to_html () in
+    let body_footer = Contact.footer_html () in
+    let body_html = List.append (List.append body_header body_content) body_footer
+    in
     Lwt.return (html
       (head
         (title (pcdata "Holman Gao"))
@@ -18,11 +23,7 @@ let main_service = My_app.register_service
           (Eliom_service.static_dir ()) ["compass"; "stylesheets"; "main.css"]
          ) ()]
       )
-      (body [
-        h1 [pcdata "Holman Gao"];
-        Resume.get_html ();
-        Contact.footer_html ()
-      ])
+      (body body_html)
     )
   )
 
