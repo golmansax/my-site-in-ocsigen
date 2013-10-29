@@ -15,7 +15,7 @@ let main_service = My_app.register_service
       (head
         (title (pcdata "Holman Gao"))
         [css_link ~uri:(make_uri
-          (Eliom_service.static_dir ()) ["stylesheets"; "main.css"]
+          (Eliom_service.static_dir ()) ["compass"; "stylesheets"; "main.css"]
          ) ()]
       )
       (body [

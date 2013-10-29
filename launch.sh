@@ -16,11 +16,10 @@ wrong_dir() {
 
 if [ $# -lt 1 ]; then usage; fi
 
-cd static || wrong_dir
-compass compile
-cd ..
+# Compile the Sass files
+compass compile -c static/compass/config.rb --force
 
-# Compile the files first, then run the launch make
+# Compile the Eliom files first, then run the launch make
 make
 
 if [ $1 == 'dev' ]; then
