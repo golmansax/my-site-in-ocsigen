@@ -13,7 +13,7 @@ let main_service = My_app.register_service
   (fun () () ->
     let body_header = [h1 [pcdata "Holman Gao"]] in
     let body_content = Resume.to_html () in
-    let body_footer = Contact.footer_html () in
+    let body_footer = Contact.to_html () in
     let body_html = List.append (List.append body_header body_content) body_footer
     in
     Lwt.return (html

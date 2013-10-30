@@ -1,3 +1,3 @@
 My Personal Site
 =======
-Written in OCaml (with Ocsigen) and Sass (with Compass)
+Coded in OCaml (with Ocsigen) and Sass (with Compass)

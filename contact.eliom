@@ -25,13 +25,13 @@ module Contact = struct
       | [] -> []
       | last :: [] -> [pcdata last]
       | head :: tail ->
-          let hidden_crap = span ~a:[a_class ["hidden"]] [pcdata "crap"] in
+          let hidden_crap = span ~a:[a_class ["is_hidden"]] [pcdata "crap"] in
           List.append [pcdata head; hidden_crap] (add_obfuscation tail)
       in
       add_obfuscation text_list
   end
 
-  let footer_html () =
+  let to_html () =
     let email = Email.make "holman" "golmansax" in
-    [div (Email.to_html email)]
+    [div ~a:[a_class ["contact"; "mt1"]] (Email.to_html email)]
 end

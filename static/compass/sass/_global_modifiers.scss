@@ -1,0 +1,24 @@
+// From http://thesassway.com/advanced/modular-css-naming-conventions
+
+@import "compass/utilities/general/clearfix";
+
+.clearfix { @include clearfix; }
+
+.is_hidden    { display:    none !important; }
+.is_invisible { visibility: none !important; }
+
+.block        { display: block        !important; }
+.inline       { display: inline       !important; }
+.inline_block { display: inline-block !important; }
+
+.float_left  { float: left  !important; }
+.float_right { float: right !important; }
+
+.text_left   { text-align: left   !important; }
+.text_center { text-align: center !important; }
+.text_right  { text-align: right  !important; }
+
+.mt0 { margin-top:    0   !important; }
+.mt1 { margin-top:    1em !important; }
+.mb0 { margin-bottom: 0   !important; }
+.mb1 { margin-bottom: 1em !important; }

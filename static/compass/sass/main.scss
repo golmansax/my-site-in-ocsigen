@@ -1,16 +1,18 @@
-@import 'compass/reset';
-
+// Core only imports variables and mixins
 @import 'core/core';
 
-.hidden {
-  display: none;
-}
+@import 'compass/reset';
+@import 'global_modifiers';
+
+// Specific to this site
+@import 'contact';
+@import 'resume';
 
 // Site font is inherited from html
 html {
   font-family: $font-main;
   font-size: $font-size-text;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 body {
