@@ -20,14 +20,19 @@ wrong_dir() {
 if [ $# -lt 1 ]; then usage; fi
 
 # Compile the Sass files
-compass compile -c static/compass/config.rb --force
+compile_compass() {
+  compass compile -c static/compass/config.rb --force
+}
 
 if [ $1 == 'dev' ]; then
+  compile_compass
   make
   make test.byte
 elif [ $1 == 'prod' ]; then
   # Pull the latest files
   git pull
+
+  compile_compass
   make
   sudo make install
 
@@ -41,7 +46,7 @@ elif [ $1 == 'prod' ]; then
       > /tmp/${PROJECT_NAME}.out >& /tmp/${PROJECT_NAME}.err &
   else
     echo -e "\nRestarting Ocsigen server..."
-    echo restart > $CMDPIPE
+    echo reload > $CMDPIPE
   fi
 else
   echo "Usage ./launch.sh (dev|prod)"
