@@ -129,7 +129,7 @@ module Resume = struct
       in
       let notes = [
         [ Possible_link.make "Lead ";
-          Possible_link.make ~link:"http://m.room77.com" "mobile web";
+          Possible_link.make ~link:"http://m.room77.com" "mobile app";
           Possible_link.make " developer, coded mainly in Javascript (with \
             AngularJS)"
         ]
