@@ -22,12 +22,13 @@ if [ $# -lt 1 ]; then usage; fi
 # Compile the Sass files
 compass compile -c static/compass/config.rb --force
 
-# Compile the Eliom files first, then launch server
-make
-
 if [ $1 == 'dev' ]; then
+  make
   make test.byte
 elif [ $1 == 'prod' ]; then
+  # Pull the latest files
+  git pull
+  make
   sudo make install
 
   # We run this to figure out if the server is already running
