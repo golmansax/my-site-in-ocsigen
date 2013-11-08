@@ -5,6 +5,15 @@ open Eliom_content.Html5.D (* Provides functions to create HTML nodes *)
  *)
 
 module Contact = struct
+  (* TODO @holman seperate this out into it's own util
+   *  This also does not need to be html util *)
+  let rec add_delimiter html_list delimiter_elt = match html_list with
+  | [] -> []
+  | last :: [] -> last
+  | head :: tail ->
+      let with_delimiter = List.append head [delimiter_elt] in
+      List.append with_delimiter (add_delimiter tail delimiter_elt)
+
   module Email = struct
     type t = {
       name: string;
@@ -21,17 +30,26 @@ module Contact = struct
       let text_list = [
         "Contact me at "; email.name; "@"; email.domain; ".com"
       ] in
-      let rec add_obfuscation text_list = match text_list with
-      | [] -> []
-      | last :: [] -> [pcdata last]
-      | head :: tail ->
-          let hidden_crap = span ~a:[a_class ["is_hidden"]] [pcdata "crap"] in
-          List.append [pcdata head; hidden_crap] (add_obfuscation tail)
-      in
-      add_obfuscation text_list
+      let text_to_html text = [pcdata text] in
+      let html_list = List.map text_to_html text_list in
+      let hidden_crap = span ~a:[a_class ["is_hidden"]] [pcdata "crap"] in
+      add_delimiter html_list hidden_crap
   end
 
   let to_html () =
-    let email = Email.make "holman" "golmansax" in
-    [div ~a:[a_class ["contact"; "mt1"]] (Email.to_html email)]
+    let contact_html =
+      let email_html =
+        let email = Email.make "holman" "golmansax" in
+        Email.to_html email
+      in
+      let github_html =
+        let github_link = "https://github.com/golmansax" in
+        let uri = Xml.uri_of_string github_link in
+        let raw_elt = pcdata "Github" in
+        [Eliom_content.Html5.F.Raw.a ~a:[a_href uri] [raw_elt]]
+      in
+      let html_list = [github_html; email_html] in
+      add_delimiter html_list (pcdata " | ")
+    in
+    [div ~a:[a_class ["contact"; "mt1"]] contact_html]
 end
