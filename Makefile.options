@@ -30,7 +30,8 @@ WWWUSER := www-data
 WWWGROUP := www-data
 
 # Port for running the server (make run.*)
-PORT := 80
+# Keep this sync'd with my-config/ports
+PORT := 7700
 
 # Port for testing (make test.*)
 TEST_PORT := 8080

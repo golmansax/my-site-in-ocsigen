@@ -49,5 +49,5 @@ elif [ $1 == 'prod' ]; then
     echo reload > $CMDPIPE
   fi
 else
-  echo "Usage ./launch.sh (dev|prod)"
+  usage
 fi
