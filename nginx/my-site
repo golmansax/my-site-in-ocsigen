@@ -15,16 +15,15 @@ server {
 	listen 80 default_server;
 	listen [::]:80 default_server ipv6only=on;
 
-	# Make site accessible from http://localhost/
-	server_name localhost www.golmansax.com;
+	server_name www.golmansax.com;
 
 	location / {
     # Routing it to the Ocsigen my-site server
-    proxy_pass http://localhost:7700;
+    proxy_pass http://www.golmansax.com:7700;
   }
 
 	location ~* /gender-guess {
     # Routing it to the Rails server
-    proxy_pass http://localhost:7701;
+    proxy_pass http://www.golmansax.com:7701;
 	}
 }
