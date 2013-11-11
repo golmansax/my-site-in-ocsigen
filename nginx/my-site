@@ -22,7 +22,14 @@ server {
     proxy_pass http://www.golmansax.com:7700;
   }
 
-	location ~* /gender-guess {
+  location ~ ^/gender-guess/(assets)/  {
+    root /home/holman/src/gender-guess/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }
+
+	location ~ ^/gender-guess {
     # Routing it to the Rails server
     proxy_pass http://www.golmansax.com:7701;
 	}
