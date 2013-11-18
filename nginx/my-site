@@ -12,25 +12,25 @@
 ##
 
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server ipv6only=on;
+  listen 80 default_server;
+  listen [::]:80 default_server ipv6only=on;
 
-	server_name www.golmansax.com;
+  server_name www.golmansax.com;
 
-	location / {
+  location / {
     # Routing it to the Ocsigen my-site server
     proxy_pass http://www.golmansax.com:7700;
   }
 
-  location ~ ^/gender-guess/(assets)/  {
-    root /home/holman/src/gender-guess/public;
+  location /gender-guess/assets {
+    alias /home/holman/src/gender-guess/public/assets;
     gzip_static on; # to serve pre-gzipped version
     expires max;
     add_header Cache-Control public;
   }
 
-	location ~ ^/gender-guess {
+  location /gender-guess {
     # Routing it to the Rails server
     proxy_pass http://www.golmansax.com:7701;
-	}
+  }
 }
