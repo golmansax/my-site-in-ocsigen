@@ -128,10 +128,13 @@ module Resume = struct
         ~link:"http://www.room77.com" resume_date
       in
       let notes = [
-        [ Possible_link.make "Lead ";
+        [ Possible_link.make "Lead developer on ";
           Possible_link.make ~link:"http://m.room77.com" "mobile app";
-          Possible_link.make " developer, coded mainly in Javascript (with \
-            AngularJS)"
+          Possible_link.make ", coded mainly in Javascript \
+            (with AngularJS)"
+        ];
+        [ Possible_link.make "Occasional forays into backend and \
+            production infrastructure projects"
         ]
       ] in
       Entry.make ~notes:notes place
