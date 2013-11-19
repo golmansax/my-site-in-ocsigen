@@ -121,7 +121,7 @@ module Resume = struct
 
   let make =
     let r77 =
-      let start_date = Date.mmyy ~month:"Jul" 2013 in
+      let start_date = Date.mmyy ~month:"Jul" 2012 in
       let end_date = Date.current in
       let resume_date = Resume_date.range start_date end_date in
       let place = Place.make "Room 77" ~position:"Software Engineer"
