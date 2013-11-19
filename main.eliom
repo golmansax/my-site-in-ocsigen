@@ -1,10 +1,5 @@
 open Eliom_content.Html5.D (* Provides functions to create HTML nodes *)
 
-(* My modules *)
-open Contact
-open Header
-open Resume
-
 module My_app = Eliom_registration.App
   (struct let application_name = "my_site" end)
 
