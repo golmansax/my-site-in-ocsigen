@@ -127,7 +127,7 @@ let make =
       ~link:"http://www.room77.com" resume_date
     in
     let notes = [
-      [ Possible_link.make "Lead developer on ";
+      [ Possible_link.make "Developer on ";
         Possible_link.make ~link:"http://m.room77.com" "mobile app";
         Possible_link.make ", coded mainly in Javascript \
           (with AngularJS)"
