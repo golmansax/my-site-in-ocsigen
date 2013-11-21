@@ -124,11 +124,11 @@ let make =
     let end_date = Date.current in
     let resume_date = Resume_date.range start_date end_date in
     let place = Place.make "Room 77" ~position:"Software Engineer"
-      ~link:"http://www.room77.com" resume_date
+      ~link:"http://www.room77.com?new=1" resume_date
     in
     let notes = [
       [ Possible_link.make "Developer on ";
-        Possible_link.make ~link:"http://m.room77.com" "mobile app";
+        Possible_link.make ~link:"http://m.room77.com?new=1" "mobile app";
         Possible_link.make ", coded mainly in Javascript \
           (with AngularJS)"
       ];
