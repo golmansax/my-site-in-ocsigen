@@ -2,13 +2,13 @@
 #
 # @author holman
 #
-# Shortcut script to launch Ocsigen web server and compile Sass
+# Shortcut script to deploy Ocsigen web server and compile Sass
 
 PROJECT_NAME=my-site
 CMDPIPE=/var/run/my-site-cmd
 
 usage() {
-  echo "Usage ./launch.sh (dev|prod)"
+  echo "Usage ./deploy.sh (dev|prod)"
   exit
 }
 
@@ -40,7 +40,7 @@ elif [ $1 == 'prod' ]; then
   pgrep ocsigenserver > /dev/null
 
   if [ $? -ne 0 ]; then
-    echo -e "\nLaunching Ocsigen server..."
+    echo -e "\nStarting Ocsigen server..."
     nohup \
       sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte \
       > /tmp/${PROJECT_NAME}.out >& /tmp/${PROJECT_NAME}.err &
