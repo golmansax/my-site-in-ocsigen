@@ -24,16 +24,17 @@ compile_compass() {
   compass compile -c static/compass/config.rb --force
 }
 
+# Pull the latest files
+git pull
+git submodule init
+git submodule update
+
+compile_compass
+make
+
 if [ $1 == 'dev' ]; then
-  compile_compass
-  make
   make test.byte
 elif [ $1 == 'prod' ]; then
-  # Pull the latest files
-  git pull
-
-  compile_compass
-  make
   sudo make install
 
   # We run this to figure out if the server is already running
