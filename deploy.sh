@@ -21,7 +21,7 @@ if [ $# -lt 1 ]; then usage; fi
 
 # Compile the Sass files
 compile_compass() {
-  compass compile -c static/compass/config.rb --force
+  compass compile -c compass/config.rb --force
 }
 
 # Pull the latest files

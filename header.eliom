@@ -7,7 +7,7 @@ open Eliom_content.Html5.D
 
 let get () =
   let css_uri = make_uri
-    (Eliom_service.static_dir ()) ["compass"; "stylesheets"; "main.css"]
+    (Eliom_service.static_dir ()) ["assets"; "main.css"]
   in
   let md5 = Digest.to_hex (Digest.string "golmansax@gmail.com") in
   let icon_link = Printf.sprintf "http://www.gravatar.com/avatar/%s?s=16" md5

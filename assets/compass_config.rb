@@ -2,10 +2,10 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "static/compass/stylesheets"
-sass_dir = "static/compass/sass"
+css_dir = "static/assets"
+sass_dir = "compass/sass"
 images_dir = "static/images"
-javascripts_dir = "static/js"
+javascripts_dir = "static/assets"
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :compressed

@@ -10,4 +10,4 @@ _server
 
 # Generated files from sass
 .sass-cache
-stylesheets
+static/assets
