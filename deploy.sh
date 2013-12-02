@@ -21,13 +21,13 @@ if [ $# -lt 1 ]; then usage; fi
 
 # Compile the Sass files
 compile_compass() {
-  compass compile -c compass/config.rb --force
+  compass compile -c assets/compass_config.rb --force
 }
 
 # Pull the latest files
 git pull
 git submodule init
-git submodule update
+git submodule foreach git pull origin master
 
 compile_compass
 make

@@ -1,23 +1,9 @@
-// Core only imports variables and mixins
-@import 'core/core';
-
-@import 'compass/reset';
-@import 'global_modifiers';
+// Basic Sass skeleton
+@import 'my-sass-core/skeletons/basic';
 
 // Specific to this site
 @import 'contact';
 @import 'resume';
-
-// Site font is inherited from html
-html {
-  font-family: $font-main;
-  font-size: $font-size-text;
-  line-height: 1.5;
-}
-
-body {
-  margin: 1em;
-}
 
 h1 {
   font-size: $font-size-header;
