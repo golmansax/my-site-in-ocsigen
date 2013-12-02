@@ -16,6 +16,8 @@ let get () =
   let description = "Personal site for Holman Gao, software engineer at \
     Room 77, University of Maryland and Blair Magnet alum"
   in
-  head
-    (title (pcdata "Holman Gao"))
-    [css_link ~uri:css_uri (); link [`Icon] icon_uri ()]
+  head (title (pcdata "Holman Gao")) [
+    css_link ~uri:css_uri ();
+    link [`Icon] icon_uri ();
+    meta ~a:[a_content description; a_name "description"] ()
+  ]
