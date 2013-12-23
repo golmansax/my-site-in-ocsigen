@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 #
 # @author holman
 #
@@ -12,17 +12,15 @@ usage() {
   exit
 }
 
-wrong_dir() {
-  echo "Error: run from project root dir"
-  exit
-}
-
 if [ $# -lt 1 ]; then usage; fi
 
 # Compile the Sass files
 compile_compass() {
   compass compile -c assets/compass_config.rb --force
 }
+
+# Go into script directory (which is the repo directory)
+cd "$(dirname "$0")"
 
 # Pull the latest files
 git pull
