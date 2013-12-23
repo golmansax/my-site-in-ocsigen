@@ -131,7 +131,8 @@ let make =
           Javascript (with AngularJS) [";
         Possible_link.make ~link:"http://m.room77.com?new=1" "website";
         Possible_link.make ", ";
-        Possible_link.make ~link:"https://itunes.apple.com/us/app/room-77-hotel-deal-finder/id418078412?mt=8" "iOS";
+        Possible_link.make ~link:"https://itunes.apple.com/us/app/\
+          room-77-hotel-deal-finder/id418078412?mt=8" "iOS";
         Possible_link.make "]"
       ];
       [ Possible_link.make "Designed and implemented a native-like HTML5 \
