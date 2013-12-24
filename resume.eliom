@@ -127,8 +127,7 @@ let make =
       ~link:"http://www.room77.com?new=1" resume_date
     in
     let notes = [
-      [ Possible_link.make "Developer on mobile app, coded mainly in \
-          Javascript (with AngularJS) [";
+      [ Possible_link.make "Developer on mobile app [";
         Possible_link.make ~link:"http://m.room77.com?new=1" "website";
         Possible_link.make ", ";
         Possible_link.make ~link:"https://itunes.apple.com/us/app/\
@@ -136,7 +135,7 @@ let make =
         Possible_link.make "]"
       ];
       [ Possible_link.make "Designed and implemented a native-like HTML5 \
-          and AngularJS mobile framework"
+          and AngularJS mobile app framework"
       ];
       [ Possible_link.make "Occasional forays into backend and \
           production infrastructure projects"
