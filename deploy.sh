@@ -36,9 +36,10 @@ elif [ $1 == 'prod' ]; then
   sudo make install
 
   # We run this to figure out if the server is already running
-  pgrep ocsigenserver > /dev/null
+  RC=0
+  pgrep ocsigenserver > /dev/null || RC=1
 
-  if [ $? -ne 0 ]; then
+  if [ $RC -ne 0 ]; then
     echo -e "\nStarting Ocsigen server..."
     nohup \
       sudo PATH=$PATH CAML_LD_LIBRARY_PATH=$CAML_LD_LIBRARY_PATH make run.byte \
