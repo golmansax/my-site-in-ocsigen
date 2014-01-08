@@ -1,5 +1,13 @@
 @import 'my-sass-core/core';
 
+.resume-entry {
+  margin-top: .5em;
+
+  &:first-child {
+    margin-top: auto;
+  }
+}
+
 .resume-entry-note {
   display: list-item;
   margin-left: 2em;

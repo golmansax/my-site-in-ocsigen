@@ -119,12 +119,27 @@ end
 type t = Entry.t list
 
 let make =
+  let chalk =
+    let place =
+      let resume_date =
+        let start_date = Date.mmyy ~month:"Jan" 2013 in
+        let end_date = Date.current in
+        Resume_date.range start_date end_date
+      in
+      Place.make "Chalk Schools" ~position:"Software Engineer"
+        ~link:"http://chalkschools.com" resume_date
+    in
+    Entry.make place
+  in
   let r77 =
-    let start_date = Date.mmyy ~month:"Jul" 2012 in
-    let end_date = Date.current in
-    let resume_date = Resume_date.range start_date end_date in
-    let place = Place.make "Room 77" ~position:"Software Engineer"
-      ~link:"http://www.room77.com?new=1" resume_date
+    let place =
+      let resume_date =
+        let start_date = Date.mmyy ~month:"Jul" 2012 in
+        let end_date = Date.mmyy ~month:"Jan" 2013 in
+        Resume_date.range start_date end_date
+      in
+      Place.make "Room 77" ~position:"Software Engineer"
+        ~link:"http://www.room77.com?new=1" resume_date
     in
     let notes = [
       [ Possible_link.make "Developer on mobile app [";
@@ -144,10 +159,12 @@ let make =
     Entry.make ~notes:notes place
   in
   let umd =
-    let name = "University of Maryland" in
-    let position = "BS, Computer Engineering and Mathematics" in
-    let resume_date = Resume_date.class_of (Date.mmyy 2012) in
-    let place = Place.make name ~position:position resume_date in
+    let place =
+      let name = "University of Maryland" in
+      let position = "BS, Computer Engineering and Mathematics" in
+      let resume_date = Resume_date.class_of (Date.mmyy 2012) in
+      Place.make name ~position:position resume_date
+    in
     let notes = [
       [ Possible_link.make ~link:"http://www.newsdesk.umd.edu/engaged/\
           release.cfm?ArticleID=2429" "Participant";
@@ -161,7 +178,7 @@ let make =
     let place = Place.make "Montgomery Blair Magnet Program" resume_date in
     Entry.make place
   in
-  [r77; umd; blair]
+  [chalk; r77; umd; blair]
 
 let to_html () =
   let helper place = div ~a:[a_class ["resume-entry"]] (Entry.to_html place)
