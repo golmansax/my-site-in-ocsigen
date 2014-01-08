@@ -14,7 +14,7 @@ let get () =
   in
   let icon_uri = Xml.uri_of_string icon_link in
   let description = "Personal site for Holman Gao, software engineer at \
-    Room 77, University of Maryland and Blair Magnet alum"
+    Chalk Schools, University of Maryland and Blair Magnet alum"
   in
   head (title (pcdata "Holman Gao")) [
     css_link ~uri:css_uri ();
