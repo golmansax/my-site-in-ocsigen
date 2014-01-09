@@ -122,7 +122,7 @@ let make =
   let chalk =
     let place =
       let resume_date =
-        let start_date = Date.mmyy ~month:"Jan" 2013 in
+        let start_date = Date.mmyy ~month:"Jan" 2014 in
         let end_date = Date.current in
         Resume_date.range start_date end_date
       in
@@ -135,7 +135,7 @@ let make =
     let place =
       let resume_date =
         let start_date = Date.mmyy ~month:"Jul" 2012 in
-        let end_date = Date.mmyy ~month:"Jan" 2013 in
+        let end_date = Date.mmyy ~month:"Jan" 2014 in
         Resume_date.range start_date end_date
       in
       Place.make "Room 77" ~position:"Software Engineer"
