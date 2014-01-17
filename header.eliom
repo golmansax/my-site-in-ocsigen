@@ -13,7 +13,7 @@ let get () =
   let icon_link = Printf.sprintf "http://www.gravatar.com/avatar/%s?s=16" md5
   in
   let icon_uri = Xml.uri_of_string icon_link in
-  let description = "Personal site for Holman Gao, software engineer at \
+  let description = "Personal site of Holman Gao, software engineer at \
     Chalk Schools, University of Maryland and Blair Magnet alum"
   in
   head (title (pcdata "Holman Gao")) [
