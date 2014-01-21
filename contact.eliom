@@ -28,7 +28,7 @@ module Email = struct
   let to_email email = Printf.sprintf "%s@%s.com" email.name email.domain
   let to_html : t -> Html5_types.div_content elt list = fun email ->
     let text_list = [
-      "Contact me at "; email.name; "@"; email.domain; ".com"
+      email.name; "@"; email.domain; ".com"
     ] in
     let text_to_html text = [pcdata text] in
     let html_list = List.map text_to_html text_list in
@@ -42,13 +42,14 @@ let to_html () =
       let email = Email.make "holman" "golmansax" in
       Email.to_html email
     in
+    let city_html = [pcdata "in San Francisco, CA"] in
     let github_html =
       let github_link = "https://github.com/golmansax" in
       let uri = Xml.uri_of_string github_link in
       let raw_elt = pcdata "Github" in
       [Eliom_content.Html5.F.Raw.a ~a:[a_href uri] [raw_elt]]
     in
-    let html_list = [github_html; email_html] in
+    let html_list = [github_html; email_html; city_html] in
     add_delimiter html_list (pcdata " | ")
   in
   [div ~a:[a_class ["contact"; "mt1"]] contact_html]

@@ -7,32 +7,43 @@
 PROJECT_NAME=my-site
 CMDPIPE=/var/run/my-site-cmd
 
+# dev|prod
+ENV=$1
+
 usage() {
   echo "Usage ./deploy.sh (dev|prod)"
   exit
 }
 
-if [ $# -lt 1 ]; then usage; fi
+[[ $# -lt 1 || ( $ENV != 'dev' && $ENV != 'prod' ) ]] && usage
 
-# Compile the Sass files
-compile_compass() {
+# Pull the latest files
+pull_latest() {
+  if [[ $ENV == 'dev' ]]; then
+    git pull --no-rebase
+  elif [[ $ENV == 'prod' ]]; then
+    # Don't allow uncommited changes in prod
+    git pull
+  fi
+
+  bower update
+
+  # Compile the Sass files
   compass compile -c assets/compass_config.rb --force
+
+  make
 }
 
 # Go into script directory (which is the repo directory)
 cd "$(dirname "$0")"
 
-# Pull the latest files
-git pull
-git submodule init
-git submodule foreach git pull origin master
-
-compile_compass
-make
-
 if [ $1 == 'dev' ]; then
+  pull_latest
+
   make test.byte
 elif [ $1 == 'prod' ]; then
+  pull_latest
+
   sudo make install
 
   # We run this to figure out if the server is already running
