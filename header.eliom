@@ -16,8 +16,10 @@ let get () =
   let description = "Personal site of Holman Gao, software engineer at \
     Chalk Schools, University of Maryland and Blair Magnet alum"
   in
+  let viewport = "width=device-width, user-scalable=no" in
   head (title (pcdata "Holman Gao")) [
     css_link ~uri:css_uri ();
     link [`Icon] icon_uri ();
-    meta ~a:[a_content description; a_name "description"] ()
+    meta ~a:[a_content description; a_name "description"] ();
+    meta ~a:[a_content viewport; a_name "viewport"] ()
   ]
