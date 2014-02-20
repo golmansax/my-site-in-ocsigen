@@ -150,7 +150,7 @@ let make =
         Possible_link.make "]"
       ];
       [ Possible_link.make "Designed and implemented a native-like HTML5 \
-          and AngularJS mobile app framework"
+          and Angular JS mobile app framework"
       ];
       [ Possible_link.make "Occasional forays into backend and \
           production infrastructure projects"
