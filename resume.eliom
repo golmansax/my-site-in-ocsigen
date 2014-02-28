@@ -152,7 +152,7 @@ let make =
       [ Possible_link.make "Designed and implemented a native-like HTML5 \
           and Angular JS single-page mobile app framework"
       ];
-      [ Possible_link.make "Contributor to ";
+      [ Possible_link.make "Author and maintainer of ";
         Possible_link.make ~link:"https://github.com/room77/angular-recompile"
           "a recompile library for Angular JS";
         Possible_link.make ", created to significantly reduce $watches on an \
