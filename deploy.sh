@@ -26,8 +26,6 @@ pull_latest() {
     git pull
   fi
 
-  bower update
-
   # Compile the Sass files
   compass compile -c assets/compass_config.rb --force
 
