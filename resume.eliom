@@ -160,6 +160,10 @@ let make =
       ];
       [ Possible_link.make "Occasional forays into backend and \
           production infrastructure projects"
+      ];
+      [ Possible_link.make ~link:"http://www.golmansax.com/office-street-view"
+          "Fun teams page";
+        Possible_link.make " created in an internal hackathon"
       ]
     ] in
     Entry.make ~notes:notes place
