@@ -161,8 +161,9 @@ let make =
       [ Possible_link.make "Occasional forays into backend and \
           production infrastructure projects"
       ];
-      [ Possible_link.make ~link:"http://www.golmansax.com/office-street-view"
-          "Fun teams page";
+      let teams_link = "http://www.golmansax.com/office-street-view/#office"
+      in
+      [ Possible_link.make ~link:teams_link "Fun teams page";
         Possible_link.make " created in an internal hackathon"
       ]
     ] in
