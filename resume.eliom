@@ -194,4 +194,9 @@ let make =
 let to_html () =
   let helper place = div ~a:[a_class ["resume-entry"]] (Entry.to_html place)
   in
-  [div ~a:[a_class ["resume"]] (List.map helper make)]
+  let jobs_html = div ~a:[a_class ["resume"]] (List.map helper make) in
+  let hobbies_html =
+    let title = Possible_link.to_html_elt "Hobbies" in
+    div ~a:[a_class ["resume-entry-note"]] title
+  in
+  [jobs_html; hobbies_html]
