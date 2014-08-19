@@ -196,7 +196,14 @@ let to_html () =
   in
   let jobs_html = div ~a:[a_class ["resume"]] (List.map helper make) in
   let hobbies_html =
-    let title = Possible_link.to_html_elt "Hobbies" in
-    div ~a:[a_class ["resume-entry-note"]] title
+    let title_html_elt =
+      let title = Possible_link.make "Hobbies: " in
+      Possible_link.to_html_elt title in
+    let acroyoga_html_elt =
+      let acroyoga_link = "http://www.sfgate.com/music/slideshow/\
+        Outside-Lands-2014-91325.php" in
+      let acroyoga = Possible_link.make ~link:acroyoga_link "acroyoga" in
+      Possible_link.to_html_elt acroyoga in
+    div ~a:[a_class ["resume-entry"]] [title_html_elt; acroyoga_html_elt]
   in
   [jobs_html; hobbies_html]
