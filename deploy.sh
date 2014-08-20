@@ -17,6 +17,7 @@ usage() {
 
 [[ $# -lt 1 || ( $ENV != 'dev' && $ENV != 'prod' ) ]] && usage
 
+
 # Pull the latest files
 pull_latest() {
   if [[ $ENV == 'dev' ]]; then
@@ -31,6 +32,9 @@ pull_latest() {
 
   make
 }
+
+# Load RVM into a shell session *as a function*
+source '/home/holman/.rvm/scripts/rvm'
 
 # Go into script directory (which is the repo directory)
 cd "$(dirname "$0")"
