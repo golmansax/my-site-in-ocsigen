@@ -17,7 +17,8 @@ let get () =
   in
   let icon_uri = Xml.uri_of_string icon_link in
   let description = "Personal site of Holman Gao, software engineer at \
-    Chalk Schools, University of Maryland and Blair Magnet alum"
+    Chalk Schools, University of Maryland and Blair Magnet alum, \
+    living in San Francisco"
   in
   let viewport = "width=device-width, user-scalable=no" in
   head (title (pcdata "Holman Gao")) [
